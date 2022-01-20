@@ -1,29 +1,35 @@
-package application.lib.ref.files;
+package application.lib.ref;
 
 public enum FilePath { 
-	
+	/**
+	 * FilePath contains references to the file paths required to access and manipulate images.
+	 * Access to the string names are provided with the public getFile() method.
+	 * 
+	 * @author fembasmat
+	 */
 	
 	/**
 	 * Root path
 	 */
-	BASE_FILEPATH("./assets/"),
+	FILEPATH("./test_asset/"),
 	
 	/**
 	 * Asset path
 	 */
-	FILE_ASSETS(BASE_FILEPATH.getFile() + "assets/"),
+	FILE_ASSETS(FILEPATH.getFile() + "assets/"),
 	
 	
 	/**
 	 * Colour resources
 	 */
-	FILE_COLOUR(BASE_FILEPATH.getFile() + "colour/"),
-	FILENAME_COLOUR(FILE_COLOUR + "hexvalues.ser"),
+	FILE_COLOUR(FILEPATH.getFile() + "colour/"),
+	FILENAME_COLOUR("hexvalues.ser"),
+	FILEPATH_COLOUR(FILE_COLOUR.getFile() + FILENAME_COLOUR.getFile()),
 	
 	/**
 	 * Shader resources
 	 */
-	FILE_SHADER(BASE_FILEPATH.getFile() + "shaders/"),
+	FILE_SHADER(FILEPATH.getFile() + "shaders/"),
 	
 	/**
 	 * Background resources
@@ -40,7 +46,7 @@ public enum FilePath {
 	 * Accessories resources
 	 */
 	FILEPATH_ACCESSORIES(FILE_ASSETS.getFile() + "accessories/"),
-	
+
 	/**
 	 * Backup resources
 	 */
@@ -49,17 +55,15 @@ public enum FilePath {
 	/**
 	 * NFT Output
 	 */
-	FILEPATH_OUTPUT(BASE_FILEPATH.getFile() + "output/"),
+	FILEPATH_OUTPUT(FILEPATH.getFile() + "output/"),
 	
 	/**
 	 * Frame resources
 	 */
-	
 	FILEPATH_FRAME(FILE_ASSETS.getFile() + "frame/");
 	
 	//String logic
 	private String path;
-	
 	FilePath(String path) { 
 		this.path = path;
 	}
