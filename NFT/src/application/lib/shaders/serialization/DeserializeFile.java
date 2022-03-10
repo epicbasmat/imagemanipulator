@@ -5,18 +5,20 @@ import java.io.ObjectInputStream;
 
 import application.lib.ref.FilePath;
 
-public class DeseralizeFile {
-	public static Object deserializeShader(FilePath fileLoc) {
+public class DeserializeFile {
+	
+	@SuppressWarnings("unchecked")
+	public static <T extends Object> T deserializeShader(FilePath fileLoc, T t) {
 		try {
 			FileInputStream readData = new FileInputStream(fileLoc.getFile());
 			ObjectInputStream readStream = new ObjectInputStream(readData);
-			Object obj = readStream.readObject();
+			T obj = (T) readStream.readObject();
 			readStream.close();
 			return obj;
 			
 		} catch (Exception e) { 
 			e.printStackTrace();
 		}
-		return fileLoc;
+		return (T) new ClassCastException();
 	}
 }

@@ -13,18 +13,18 @@ public class SerializeFile implements Serializable{
 	
 	/**
 	 * 
+	 * @param <T>
 	 * @param obj
 	 * @param fileLoc path to serialise to 
-	 * @return
 	 * @throws IOException 
 	 */
-	public static void serializeShader(Object obj, FilePath fileLoc) throws IOException { 
+	public static <T extends Object> void serializeShader(FilePath fileLoc, T t) throws IOException { 
 		try {
-			FileOutputStream writeData = new FileOutputStream(fileLoc.getFile().toString());
+			FileOutputStream writeData = new FileOutputStream(fileLoc.getFile());
 			ObjectOutputStream writeStream = new ObjectOutputStream(writeData);
-			writeStream.writeObject(obj);
+			writeStream.writeObject(t);
 			writeStream.flush();
-			writeStream.close();
+			writeStream.close();				
 			
 		} catch (IOException e) {
 			e.printStackTrace();

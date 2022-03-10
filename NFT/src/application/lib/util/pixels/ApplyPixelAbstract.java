@@ -4,7 +4,7 @@ import javafx.scene.image.PixelReader;
 import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
 
-public abstract class ApplyPixel implements Runnable {
+public abstract class ApplyPixelAbstract implements Runnable {
 
 	private int x;
 	private int y;
@@ -12,7 +12,14 @@ public abstract class ApplyPixel implements Runnable {
 
 	private WritableImage image;
 	
-	ApplyPixel(int x, int y, int max, WritableImage image) {
+	/**
+	 * 
+	 * @param x
+	 * @param y
+	 * @param max
+	 * @param image
+	 */
+	public ApplyPixelAbstract(int x, int y, int max, WritableImage image) {
 		this.x = x;
 		this.y = y;
 		this.max = max;
@@ -23,12 +30,9 @@ public abstract class ApplyPixel implements Runnable {
 	public void run() {
 		PixelReader pixelReader = image.getPixelReader();
 		PixelWriter pixelWriter = image.getPixelWriter();	
-		do {
-			int argb = pixelReader.getArgb(x, y);
-			for (int y = 0; y < max; y++) {
-				filter(argb, pixelWriter, x, y);
-			}
-		} while (y < max);
+		for (y = 0; y < max; y++) {
+			filter(pixelReader.getArgb(x, y), pixelWriter, x, y);
+		}
 	}
 	
 	abstract public void filter(int argb, PixelWriter pixelWriter, int x, int y);

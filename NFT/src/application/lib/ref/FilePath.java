@@ -11,7 +11,7 @@ public enum FilePath {
 	/**
 	 * Root path
 	 */
-	FILEPATH("./test_asset/"),
+	FILEPATH("./assets/"),
 	
 	/**
 	 * Asset path
@@ -23,13 +23,13 @@ public enum FilePath {
 	 * Colour resources
 	 */
 	FILE_COLOUR(FILEPATH.getFile() + "colour/"),
-	FILENAME_COLOUR("hexvalues.ser"),
+	FILENAME_COLOUR("shaders.ser"),
 	FILEPATH_COLOUR(FILE_COLOUR.getFile() + FILENAME_COLOUR.getFile()),
 	
 	/**
 	 * Shader resources
 	 */
-	FILE_SHADER(FILEPATH.getFile() + "shaders/"),
+	FILEPATH_SHADERS(FILEPATH.getFile() + "shaders/"),
 	
 	/**
 	 * Background resources
