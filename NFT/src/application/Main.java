@@ -1,7 +1,7 @@
 package application;
 
+import application.lib.fxlib.FxSetup;
 import application.lib.imagegen.GenerateImage;
-import application.lib.shaders.datagenerators.GenerateShaderData;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -21,15 +21,8 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		GenerateImage image = new GenerateImage(new WritableImage(64, 64));
-		primaryStage.setTitle("le test has arrived");
-		ImageView view = new ImageView();
-		view.setImage(image.getImage());
-		Group root = new Group(view);
-		Scene scene = new Scene(root, 300, 300);
-		primaryStage.setScene(scene);
-		primaryStage.show();
 		image.setupImageGenerators();
-		//GenerateShaderData data = new GenerateShaderData();
-		//data.generateShaderData();
+		primaryStage.setTitle("NFT Generators.");
+		new FxSetup(primaryStage, image).setupScene();
 	}
 }

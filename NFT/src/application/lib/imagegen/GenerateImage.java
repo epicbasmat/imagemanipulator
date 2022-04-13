@@ -30,12 +30,12 @@ public class GenerateImage {
 	 * @param image The image to apply to the base image
 	 * @throws InterruptedException
 	 */
-	public void applyImageToPrimary(WritableImage image) throws InterruptedException { 
+	private void applyImageToPrimary(WritableImage image) throws InterruptedException { 
 		new LayerApplier(primary, image).applyBottomToTop();
 		new ShaderApplier(primary).applyShaderToImage();
 	}
 	
-	public WritableImage getNewWritableImage(FilePath path) throws FileNotFoundException {
+	private WritableImage getNewWritableImage(FilePath path) throws FileNotFoundException {
 		return new WritableImage(new Image(new FileInputStream(GetFileFromDirectory.getFile(path)
 					.getAbsolutePath()))
 				.getPixelReader(), 64, 64);

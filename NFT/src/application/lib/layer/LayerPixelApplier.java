@@ -17,7 +17,6 @@ public class LayerPixelApplier extends ApplyPixelAbstract{
 	 */
 	public LayerPixelApplier(int x, WritableImage bottom, WritableImage top) {		
 		super(x, 0, (int) bottom.getHeight(), bottom);
-		System.out.println(top.getPixelReader().getArgb(40, 40));
 		this.top = top;
 		this.bottom = bottom;
 	}

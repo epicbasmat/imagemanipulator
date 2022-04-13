@@ -28,8 +28,8 @@ public class ShaderPlxelApplier extends ApplyPixelAbstract {
 	 * the specified RGB colours for a shader to be applied.
 	 * @param x the X coordinate of the row to apply to.
 	 * @param max the maximum Y coordinate to go down to.
-	 * @param image the {@code WritableImage} image to apply the shader to.
-	 * @param shader the shader you want to apply the image to
+	 * @param image the {@code WritableImage} to apply the shader to.
+	 * @param shader the shader  to apply the image to
 	 */
 	public ShaderPlxelApplier(int x, int max, WritableImage image, Color[] shader) {
 		super(x, 0, max, image);
